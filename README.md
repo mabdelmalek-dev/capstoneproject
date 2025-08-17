@@ -2,7 +2,7 @@
 
 This repository includes two key components for detecting fraudulent bank checks using OCR and Deep Learning:
 
-![Demo](./capstoneProject.png)
+![Demo](./CapstoneProject.png)
 
 ## Project Structure
 
