@@ -2,6 +2,8 @@
 
 This repository includes two key components for detecting fraudulent bank checks using OCR and Deep Learning:
 
+![Demo](./capstoneProject.png)
+
 ## Project Structure
 
 - **OCR_Module/**: Extracts numeric amounts from scanned check images using EasyOCR and compares them with stored values for validation.
