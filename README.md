@@ -1,30 +1,62 @@
-# capstone project
-Fraudulent Check Detection (Capstone Project)  This project was developed as my senior capstone project under the supervision of JPMorgan Chase software engineers. The goal was to design and implement a machine learning pipeline that detects fraudulent checks with high accuracy using deep learning and OCR techniques.
+# Check Fraud Detection System
 
-Project Overview
+This repository includes two key components for detecting fraudulent bank checks using OCR and Deep Learning:
 
-Built and trained a Convolutional Neural Network (CNN) using TensorFlow to classify check images as fraudulent or genuine.
+## Project Structure
 
-Implemented image preprocessing (grayscale conversion, resizing, noise removal) and OCR-based text extraction for feature enrichment.
+- **OCR_Module/**: Extracts numeric amounts from scanned check images using EasyOCR and compares them with stored values for validation.
+- **ML_Module/**: Trains a convolutional neural network (CNN) to classify checks as fraudulent or legitimate based on image features.
 
-Enhanced performance through hyperparameter tuning, cross-validation, and dropout regularization.
+## Requirements
 
-Achieved 95% F1-score, reflecting strong precision and recall in fraud detection.
+- Python 3.x
+- OpenCV
+- EasyOCR
+- TensorFlow
+- NumPy
+- Matplotlib
+- PIL (Pillow)
 
-Developed the end-to-end workflow in Google Colab, from preprocessing to model evaluation.
+Install dependencies with:
+```bash
+pip install -r requirements.txt
+```
 
-Tech Stack
+## How It Works
 
-Languages/Frameworks: Python, TensorFlow, Keras, OpenCV, Tesseract OCR
+### OCR Module
+1. Crops the amount box from check images.
+2. Uses EasyOCR to recognize numeric values.
+3. Compares OCR result with CSV ground-truth and evaluates with confusion matrix.
 
-Tools: Google Colab, Pandas, NumPy, Matplotlib
+### ML Module
+1. Preprocesses and crops check image regions.
+2. Trains a CNN model on labeled fraud/non-fraud data.
+3. Evaluates model accuracy, precision, recall.
+4. Uses the trained model to classify new check images.
 
-Methods: Supervised learning, CNN, OCR, hyperparameter tuning
+## Dataset Structure
 
-Key Outcomes
+```
+dataset/
+  OCR/
+    amount box/
+    fraud-nonfraud/
+    Check Amounts.csv
+  ML/
+    data/
+      fraud/
+      non fraud/
+    uncropped data/
+      fraud/
+      non fraud/
+    unscanned checks/
+    unscanned uncropped checks/
+    model output/
+      fraud/
+      non fraud/
+```
 
-Designed a scalable ML pipeline that can be extended to other document verification use cases.
+## Author
+Prepared for academic and practical demonstration of document fraud detection using AI tools.
 
-Strengthened collaboration with industry mentors at JPMorgan Chase, gaining exposure to real-world financial risk problems.
-
-Delivered a proof-of-concept system that balances accuracy and efficiency for potential enterprise deployment.
